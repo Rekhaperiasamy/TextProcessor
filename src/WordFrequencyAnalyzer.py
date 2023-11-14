@@ -1,6 +1,5 @@
 from typing import List
 import re
-from collections import Counter
 
 from src.WordFrequency import WordFrequency
 
@@ -9,7 +8,7 @@ class WordFrequencyAnalyzer:
     def __init__(self) -> None:
         pass
 
-    def calculate_highest_frequency(self, text: str):
+    def calculate_highest_frequency(self, text: str) -> int:
         word_list = re.findall(
             r'(?<![A-Za-z])[A-Za-z]+(?![A-Za-z])', text.lower())
 
@@ -20,7 +19,7 @@ class WordFrequencyAnalyzer:
 
         return max(word_count.values())
 
-    def calculate_frequency_for_word(self, text: str, word: str):
+    def calculate_frequency_for_word(self, text: str, word: str) -> int:
         word_list = re.findall(
             r'(?<![A-Za-z])[A-Za-z]+(?![A-Za-z])', text.lower())
 
@@ -34,7 +33,7 @@ class WordFrequencyAnalyzer:
         else:
             return word_count[word.lower()]
 
-    def calculate_most_frequent_n_words(self, text: str, number: str):
+    def calculate_most_frequent_n_words(self, text: str, number: str) -> List[WordFrequency]:
         word_list = re.findall(
             r'(?<![A-Za-z])[A-Za-z]+(?![A-Za-z])', text.lower())
 
